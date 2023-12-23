@@ -1,0 +1,39 @@
+
+
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="description" content="Этот домен возможно продается. Цену и условия смотрите на нашем сайте http://domeno.ru или на самом домене.">
+<title>Данный домен возможно продается.</title>
+</head>
+<body>
+<script type="text/javascript">
+count = window.location.hostname.split(".").length - 1;
+
+if (count == 2 && window.location.hostname.substring(0, 3)=="www") {count = 0;}
+
+
+
+
+if (count == 1 || count == 0) {
+window.location.href = 'https://domeno.ru/parking.php?din='+window.location.hostname;
+}
+
+//if (count > 1) {
+//window.location.href = 'https://www.aviasales.ru/?marker=126100.'+window.location.hostname.replace(/\./g, "_");
+//}
+
+if (count > 1) {
+//window.location.href = 'https://tp.media/r?marker=126100&trs=38032&p=4114&u=https%3A%2F%2Fwww.aviasales.ru';
+window.location.href = 'https://tp.media/r?marker=126100.'+window.location.hostname.replace(/\./g, "_")+'&trs=38032&p=4114&u=https%3A%2F%2Fwww.aviasales.ru';
+}
+
+//if (count > 1) {
+//window.location.href = 'https://s.click.aliexpress.com/e/_9x6Jca';
+//}
+
+</script>
+</body>
+</html>
+
+
+
+

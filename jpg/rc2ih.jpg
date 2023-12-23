@@ -1,0 +1,90 @@
+<?php
+
+define('VIEWS_DIR', $_SERVER['DOCUMENT_ROOT'].'/views/ru');
+
+if ($_SERVER['REQUEST_URI'] == '/') {
+	$content = file_get_contents(VIEWS_DIR.'/index.html');
+}
+else if ($_SERVER['REQUEST_URI'] == '/about') {
+	$content = file_get_contents(VIEWS_DIR.'/about.html');
+}
+else if ($_SERVER['REQUEST_URI'] == '/apidocs') {
+	$content = file_get_contents(VIEWS_DIR.'/apidocs.html');
+}
+else if ($_SERVER['REQUEST_URI'] == '/contact') {
+	$content = file_get_contents(VIEWS_DIR.'/contact.html');
+}
+else if ($_SERVER['REQUEST_URI'] == '/error-javascript') {
+	$content = file_get_contents(VIEWS_DIR.'/error-javascript.html');
+}
+else if ($_SERVER['REQUEST_URI'] == '/not_found') {
+	$content = file_get_contents(VIEWS_DIR.'/not_found.html');
+}
+else if ($_SERVER['REQUEST_URI'] == '/tos') {
+	$content = file_get_contents(VIEWS_DIR.'/about.html');
+}
+else if (preg_match('#^/((\w)(\w)(\w)(\w)(\w)\.(jpg|gif|png|bmp|tiff|psd|pdf))$#', $_SERVER['REQUEST_URI'], $matches)) {
+	$imagename = $matches[1];
+	$page = 'view';
+}
+else if (preg_match('#^/\?(v|g)=?((\w)(\w)(\w)(\w)(\w)\.(jpg|gif|png|bmp|tiff|psd|pdf))$#', $_SERVER['REQUEST_URI'], $matches)) {
+	$imagename = $matches[2];
+	if ($matches[1] == 'v')
+		$page = 'view';
+	if ($matches[1] == 'g')
+		$page = 'view';//$page = 'group';
+}
+
+if (!empty($imagename) && !empty($page)) {
+	$img_path_full = '/i/'.$imagename{0}.'/'.$imagename{1}.'/'.$imagename{2}.'/'.$imagename;
+	$thumb_path_full = '/t/'.$imagename{0}.'/'.$imagename{1}.'/'.$imagename{2}.'/'.(preg_match("/^([\w]+)\.(tiff|bmp|psd|pdf)+/", $imagename, $matches) ? $matches[1].'.png' : $imagename);
+	$img_path = '/i/'.$imagename;
+	$thumb_path = '/t/'.(preg_match("/^([\w]+)\.(tiff|bmp|psd|pdf)+/", $imagename, $matches) ? $matches[1].'.png' : $imagename);
+	$img_download_path = '/d/'.$imagename;
+	$img_view = 'http://'.$_SERVER['HTTP_HOST'].'/'.$imagename;
+	$img_url = 'http://s0.'.$_SERVER['HTTP_HOST'].$img_path;
+	$thumb_url = 'http://s0.'.$_SERVER['HTTP_HOST'].$thumb_path;
+	$img_download_url = 'http://s0.'.$_SERVER['HTTP_HOST'].$img_download_path;
+	$str = '0123456789abcdefghijklmn';
+	/*for ($i = 0; $i < strlen($str); $i++) {
+		if (@file_get_contents('http://s'.substr($str, $i, 1).'.'.$_SERVER['HTTP_HOST'].$img_path))
+			break;
+	}*/
+	if (file_exists($_SERVER['DOCUMENT_ROOT'].$img_path_full)) {
+		$viewedimage = preg_match("/^([\w]+)\.(tiff|bmp|psd|pdf)+/", $imagename) ? $thumb_url : $img_url;
+		list($img_width, $img_height, $img_type, $attr) = getimagesize($_SERVER['DOCUMENT_ROOT'].(preg_match("/^([\w]+)\.(tiff|bmp|psd|pdf)+/", $imagename) ? $thumb_path_full : $img_path_full));
+		function bytes_to_kb($bytes) {
+			$kb = round((int)$bytes*0.0009765625, 1);
+			return ($kb>1024) ? kb_to_mb($kb).' MB' : $kb.' KB';	
+		}
+		function kb_to_mb($kb) {
+			return round(bytes_to_kb($kb), 1);
+		}
+		$img_size = bytes_to_kb(filesize($_SERVER['DOCUMENT_ROOT'].$img_path_full));
+		$content = file_get_contents(VIEWS_DIR.'/'.$page.'.html');
+		$content = str_replace('<!--#echo var="imagename"-->', $imagename, $content);
+		$content = str_replace('<!--#echo var="img_view"-->', $img_view, $content);
+		$content = str_replace('<!--#echo var="img_url"-->', $img_url, $content);
+		$content = str_replace('<!--#echo var="thumb_url"-->', $thumb_url, $content);
+		$content = str_replace('<!--#echo var="img_width"-->', $img_width, $content);
+		$content = str_replace('<!--#echo var="img_height"-->', $img_height, $content);
+		$content = str_replace('<!--#echo var="img_size"-->', $img_size, $content);
+		$content = str_replace('<!--#echo var="img_download_url"-->', $img_download_url, $content);
+		$content = str_replace('<!--#echo var="viewedimage"-->', $viewedimage, $content);
+	}
+}
+
+if (!empty($content)) {
+	exit($content);
+}
+
+header("HTTP/1.0 404 Not Found");
+$content = file_get_contents(VIEWS_DIR.'/not_found.html');
+echo $content;
+// exit();
+
+// phpinfo();
+// header('HTTP/1.1 503 Service Temporarily Unavailable');
+// header('Status: 503 Service Temporarily Unavailable');
+// header('Retry-After: 300');
+// exit();

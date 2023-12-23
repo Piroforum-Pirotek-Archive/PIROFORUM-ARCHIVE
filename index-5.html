@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+
+<!-- Mirrored by: HTTrack Website Copier/3.x. Site: piroforum.info. File: /chat/. Date: Mon, 18 Dec 2023 15:42:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>AJAX Chat</title>
+	<style type="text/css">
+		body {
+			padding:0;
+			margin:0;
+		}
+	</style>
+	<link rel="alternate stylesheet" type="text/css" href="css/beige.css" title="beige"/><link rel="alternate stylesheet" type="text/css" href="css/black.css" title="black"/><link rel="alternate stylesheet" type="text/css" href="css/grey.css" title="grey"/><link rel="alternate stylesheet" type="text/css" href="css/oxygen.css" title="Oxygen"/><link rel="alternate stylesheet" type="text/css" href="css/lithium.css" title="Lithium"/><link rel="alternate stylesheet" type="text/css" href="css/sulfur.css" title="Sulfur"/><link rel="alternate stylesheet" type="text/css" href="css/cobalt.css" title="Cobalt"/><link rel="alternate stylesheet" type="text/css" href="css/mercury.css" title="Mercury"/><link rel="alternate stylesheet" type="text/css" href="css/radium.css" title="Radium"/><link rel="alternate stylesheet" type="text/css" href="css/prosilver.css" title="prosilver"/><link rel="alternate stylesheet" type="text/css" href="css/subsilver2.css" title="subsilver2"/><link rel="alternate stylesheet" type="text/css" href="css/subblack2.css" title="subblack2"/><link rel="alternate stylesheet" type="text/css" href="css/subsilver.css" title="subSilver"/><link rel="stylesheet" type="text/css" href="css/core.css" title="Core"/><link rel="alternate stylesheet" type="text/css" href="css/mybb.css" title="MyBB"/><link rel="alternate stylesheet" type="text/css" href="css/vbulletin.css" title="vBulletin"/>
+	<!--[if lt IE 7]>
+		<link rel="stylesheet" type="text/css" href="css/ie5-6.css"/>
+		<script type="text/javascript">
+			var isIElt7 = true;
+		</script>
+	<![endif]-->
+	<script src="js/chat.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/custom.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/en.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/config.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/fabridge.js" type="text/javascript" charset="UTF-8"></script>
+	<script type="text/javascript">
+		// <![CDATA[
+			function toggleContainer(containerID, hideContainerIDs) {
+				if(hideContainerIDs) {
+					for(var i=0; i<hideContainerIDs.length; i++) {
+						ajaxChat.showHide(hideContainerIDs[i], 'none');	
+					}
+				}		
+				ajaxChat.showHide(containerID);
+				if(typeof arguments.callee.styleProperty == 'undefined') {
+					if(typeof isIElt7 != 'undefined') {
+						arguments.callee.styleProperty = 'marginRight';
+					} else {
+						arguments.callee.styleProperty = 'right';
+					}
+				}
+				var containerWidth = document.getElementById(containerID).offsetWidth;
+				if(containerWidth) {
+					document.getElementById('chatList').style[arguments.callee.styleProperty] = (containerWidth+28)+'px';	
+				} else {
+					document.getElementById('chatList').style[arguments.callee.styleProperty] = '20px';
+				}				
+			}
+
+			function initialize() {
+				ajaxChat.updateButton('audio', 'audioButton');
+				ajaxChat.updateButton('autoScroll', 'autoScrollButton');
+				document.getElementById('bbCodeSetting').checked = ajaxChat.getSetting('bbCode');
+				document.getElementById('bbCodeImagesSetting').checked = ajaxChat.getSetting('bbCodeImages');
+				document.getElementById('bbCodeColorsSetting').checked = ajaxChat.getSetting('bbCodeColors');
+				document.getElementById('hyperLinksSetting').checked = ajaxChat.getSetting('hyperLinks');
+				document.getElementById('lineBreaksSetting').checked = ajaxChat.getSetting('lineBreaks');
+				document.getElementById('emoticonsSetting').checked = ajaxChat.getSetting('emoticons');
+				document.getElementById('autoFocusSetting').checked = ajaxChat.getSetting('autoFocus');
+				document.getElementById('maxMessagesSetting').value = ajaxChat.getSetting('maxMessages');
+				document.getElementById('wordWrapSetting').checked = ajaxChat.getSetting('wordWrap');
+				document.getElementById('maxWordLengthSetting').value = ajaxChat.getSetting('maxWordLength');
+				document.getElementById('dateFormatSetting').value = ajaxChat.getSetting('dateFormat');
+				document.getElementById('persistFontColorSetting').checked = ajaxChat.getSetting('persistFontColor');
+				for(var i=0; i<document.getElementById('audioVolumeSetting').options.length; i++) {
+					if(document.getElementById('audioVolumeSetting').options[i].value == ajaxChat.getSetting('audioVolume')) {
+						document.getElementById('audioVolumeSetting').options[i].selected = true;
+						break;
+					}
+				}
+				ajaxChat.fillSoundSelection('soundReceiveSetting', ajaxChat.getSetting('soundReceive'));
+				ajaxChat.fillSoundSelection('soundSendSetting', ajaxChat.getSetting('soundSend'));
+				ajaxChat.fillSoundSelection('soundEnterSetting', ajaxChat.getSetting('soundEnter'));
+				ajaxChat.fillSoundSelection('soundLeaveSetting', ajaxChat.getSetting('soundLeave'));
+				ajaxChat.fillSoundSelection('soundChatBotSetting', ajaxChat.getSetting('soundChatBot'));
+				ajaxChat.fillSoundSelection('soundErrorSetting', ajaxChat.getSetting('soundError'));
+				document.getElementById('blinkSetting').checked = ajaxChat.getSetting('blink');
+				document.getElementById('blinkIntervalSetting').value = ajaxChat.getSetting('blinkInterval');
+				document.getElementById('blinkIntervalNumberSetting').value = ajaxChat.getSetting('blinkIntervalNumber');
+			}
+
+			ajaxChatConfig.loginChannelID = parseInt('0');
+			ajaxChatConfig.sessionName = 'ajax_chat';
+			ajaxChatConfig.cookieExpiration = parseInt('365');
+			ajaxChatConfig.cookiePath = 'index.html';
+			ajaxChatConfig.cookieDomain = '';
+			ajaxChatConfig.cookieSecure = '';
+			ajaxChatConfig.chatBotName = decodeURIComponent('ChatBot');
+			ajaxChatConfig.chatBotID = '2147483647';
+			ajaxChatConfig.allowUserMessageDelete = parseInt('0');
+			ajaxChatConfig.inactiveTimeout = parseInt('2');
+			ajaxChatConfig.privateChannelDiff = parseInt('500000000');
+			ajaxChatConfig.privateMessageDiff = parseInt('1000000000');
+			ajaxChatConfig.showChannelMessages = parseInt('1');
+			ajaxChatConfig.messageTextMaxLength = parseInt('1040');
+			ajaxChatConfig.socketServerEnabled = parseInt('0');
+			ajaxChatConfig.socketServerHost = decodeURIComponent('piroforum.info');
+			ajaxChatConfig.socketServerPort = parseInt('1935');
+			ajaxChatConfig.socketServerChatID = parseInt('0');
+		
+			ajaxChat.init(ajaxChatConfig, ajaxChatLang, true, true, true, initialize);
+		// ]]>
+	</script>
+</head>
+
+<body>
+	<div id="content">
+		<div id="headlineContainer">
+			<h1 style="color:#0000ff">"Piroforum"</h1>
+		</div>
+		<div id="logoutChannelContainer">
+  			<input type="button" id="logoutButton" value="Logout" onclick="ajaxChat.logout();"/>
+			<label for="channelSelection">Channel:</label>
+			<select id="channelSelection" onchange="ajaxChat.switchChannel(this.options[this.selectedIndex].value);"><option value="Public" selected="selected">Public</option></select>
+			<label for="styleSelection">Style:</label>
+			<select id="styleSelection" onchange="ajaxChat.setActiveStyleSheet(ajaxChat.getSelectedStyle());"><option value="beige">beige</option><option value="black">black</option><option value="grey">grey</option><option value="Oxygen">Oxygen</option><option value="Lithium">Lithium</option><option value="Sulfur">Sulfur</option><option value="Cobalt">Cobalt</option><option value="Mercury">Mercury</option><option value="Radium">Radium</option><option value="prosilver">prosilver</option><option value="subsilver2">subsilver2</option><option value="subblack2">subblack2</option><option value="subSilver">subSilver</option><option value="Core" selected="selected">Core</option><option value="MyBB">MyBB</option><option value="vBulletin">vBulletin</option></select>
+			<label for="languageSelection">Language:</label>
+			<select id="languageSelection" onchange="ajaxChat.switchLanguage(this.value);"><option value="ar">ط¹ط±ط¨ظٹ</option><option value="bg">ذ‘رٹذ»ذ³ذ°ر€رپذ؛ذ¸</option><option value="bp">Portuguأھs (Brasil)</option><option value="ca">Catalأ </option><option value="cz">ؤŒesky</option><option value="de">Deutsch</option><option value="el">خ•خ»خ»خ·خ½خ¹خ؛خ±</option><option value="en" selected="selected">English</option><option value="es">Espaأ±ol</option><option value="fi">Suomi</option><option value="fr">Franأ§ais</option><option value="he">×¢×‘×¨×™×ھ</option><option value="hr">Hrvatski</option><option value="in">Bahasa Indonesia</option><option value="it">Italiano</option><option value="kr">ي•œê¸€</option><option value="ja">و—¥وœ¬èھ‍</option><option value="nl">Nederlands</option><option value="no">Norsk</option><option value="pl">Polski</option><option value="ro">Romأ¢nia</option><option value="ru">Русский</option><option value="sk">Slovenؤچina</option><option value="sl">Slovensko</option><option value="sr">Srpski</option><option value="sv">Svenska</option><option value="tr">Tأ¼rkأ§e</option><option value="uk">ذ£ذ؛ر€ذ°ر—ذ½رپرŒذ؛ذ°</option><option value="zh">ن¸­و–‡ (ç®€ن½“)</option><option value="zh-tw">ن¸­و–‡ (ç¹پé«”)</option></select>
+  		</div>
+		<div id="statusIconContainer" class="statusContainerOn" onclick="ajaxChat.updateChat(null);"></div>
+		<!--[if lt IE 7]>
+			<div></div>
+		<![endif]-->
+		<div id="chatList"></div>
+		<div id="inputFieldContainer">
+			<textarea id="inputField" rows="1" cols="50" title="Press SHIFT+ENTER to input a line break" onkeypress="ajaxChat.handleInputFieldKeyPress(event);" onkeyup="ajaxChat.handleInputFieldKeyUp(event);"></textarea>
+		</div>
+		<div id="submitButtonContainer">
+			<span id="messageLengthCounter">0/1040</span>
+			<input type="button" id="submitButton" value="Submit" onclick="ajaxChat.sendMessage();"/>
+		</div>
+		<div id="emoticonsContainer" dir="ltr"></div>
+		<div id="bbCodeContainer">
+			<input type="button" value="b" title="Bold text: [b]text[/b]" onclick="ajaxChat.insertBBCode('b');" style="font-weight:bold;"/>
+			<input type="button" value="i" title="Italic text: [i]text[/i]" onclick="ajaxChat.insertBBCode('i');" style="font-style:italic;"/>
+			<input type="button" value="u" title="Underline text: [u]text[/u]" onclick="ajaxChat.insertBBCode('u');" style="text-decoration:underline;"/>
+			<input type="button" value="Quote" title="Quote text: [quote]text[/quote] or [quote=author]text[/quote]" onclick="ajaxChat.insertBBCode('quote');"/>
+			<input type="button" value="Code" title="Code display: [code]code[/code]" onclick="ajaxChat.insertBBCode('code');"/>
+			<input type="button" value="URL" title="Insert URL: [url]http://example.org[/url] or [url=http://example.org]text[/url]" onclick="ajaxChat.insertBBCode('url');"/>
+			<input type="button" value="Image" title="Insert image: [img]http://example.org/image.jpg[/img]" onclick="ajaxChat.insertBBCode('img');"/>
+			<input type="button" value="Font Color" title="Font Color: [color=red]text[/color]" onclick="ajaxChat.showHide('colorCodesContainer', null);"/>
+		</div>
+		<div id="colorCodesContainer" style="display:none;" dir="ltr"></div>
+		<div id="optionsContainer">
+			<input type="image" src="gif/pixel.gif" class="button" id="helpButton" alt="Show/hide help" title="Show/hide help" onclick="toggleContainer('helpContainer', new Array('onlineListContainer','settingsContainer'));"/>
+			<input type="image" src="gif/pixel.gif" class="button" id="settingsButton" alt="Show/hide settings" title="Show/hide settings" onclick="toggleContainer('settingsContainer', new Array('onlineListContainer','helpContainer'));"/>
+			<input type="image" src="gif/pixel.gif" class="button" id="onlineListButton" alt="Show/hide online list" title="Show/hide online list" onclick="toggleContainer('onlineListContainer', new Array('settingsContainer','helpContainer'));"/>
+			<input type="image" src="gif/pixel.gif" class="button" id="audioButton" alt="Sound on/off" title="Sound on/off" onclick="ajaxChat.toggleSetting('audio', 'audioButton');"/>
+			<input type="image" src="gif/pixel.gif" class="button" id="autoScrollButton" alt="Autoscroll on/off" title="Autoscroll on/off" onclick="ajaxChat.toggleSetting('autoScroll', 'autoScrollButton');"/>
+  		</div>
+		<div id="onlineListContainer">
+			<h3>Online users</h3>
+	  		<div id="onlineList"></div>
+	  	</div>
+	  	<div id="helpContainer" style="display:none;">
+ 			<h3>Help</h3>
+ 			<div id="helpList">
+				<table>
+					<tr class="rowOdd">
+						<td class="desc">Join a channel:</td>
+						<td class="code">/join Channelname</td>
+					</tr>
+					<tr class="rowEven">
+						<td class="desc">Create a private room (Registered users only):</td>
+						<td class="code">/join</td>
+					
+					</tr>
+					<tr class="rowOdd">
+						<td class="desc">Invite someone (e.g. to a private room):</td>
+						<td class="code">/invite Username</td>
+					</tr>
+					<tr class="rowEven">
+						<td class="desc">Revoke invitation:</td>
+						<td class="code">/uninvite Username</td>
+					</tr>
+					
+					<tr class="rowOdd">
+						<td class="desc">Logout from Chat:</td>
+						<td class="code">/quit</td>
+					</tr>
+					<tr class="rowEven">
+						<td class="desc">Private message:</td>
+						<td class="code">/msg Username Text</td>
+					</tr>
+					<tr class="rowOdd">
+					
+						<td class="desc">Open a private channel:</td>
+						<td class="code">/query Username</td>
+					</tr>
+					<tr class="rowEven">
+						<td class="desc">Close a private channel:</td>
+						<td class="code">/query</td>
+					</tr>
+					<tr class="rowOdd">
+						<td class="desc">Describe action:</td>				
+						<td class="code">/action Text</td>
+					</tr>
+					<tr class="rowEven">
+						<td class="desc">Describe action in private message:</td>
+						<td class="code">/describe Username Text</td>
+					</tr>
+					<tr class="rowOdd">
+						<td class="desc">Ignore/accept messages from user:</td>
+						<td class="code">/ignore Username</td>
+					
+					</tr>
+					<tr class="rowEven">
+						<td class="desc">List ignored users:</td>
+						<td class="code">/ignore</td>
+					</tr>
+					<tr class="rowOdd">
+						<td class="desc">Display user channel:</td>
+						<td class="code">/whereis Username</td>
+					</tr>
+					
+					<tr class="rowEven">
+						<td class="desc">Kick a user (Moderators only):</td>
+						<td class="code">/kick Username [Minutes banned]</td>
+					</tr>
+					<tr class="rowOdd">
+						<td class="desc">Unban a user (Moderators only):</td>
+						<td class="code">/unban Username</td>
+					</tr>
+					<tr class="rowEven">
+					
+						<td class="desc">List banned users (Moderators only):</td>
+						<td class="code">/bans</td>
+					</tr>
+					<tr class="rowOdd">
+						<td class="desc">Display user IP (Moderators only):</td>
+						<td class="code">/whois Username</td>
+					</tr>
+					<tr class="rowEven">
+						<td class="desc">List online users:</td>
+					
+						<td class="code">/who [Channelname]</td>
+					</tr>
+					<tr class="rowOdd">
+						<td class="desc">List available channels:</td>
+						<td class="code">/list</td>
+					</tr>
+					<tr class="rowEven">
+						<td class="desc">Roll dice:</td>
+						<td class="code">/roll [number]d[sides]</td>
+					
+					</tr>
+					<tr class="rowOdd">
+						<td class="desc">Change username:</td>
+						<td class="code">/nick Username</td>
+					</tr>
+				</table>
+			</div>
+	  	</div>
+	  	<div id="settingsContainer" style="display:none;">
+ 			<h3>Settings</h3>
+ 			<div id="settingsList">
+				<table>
+					<tr class="rowOdd">
+						<td><label for="bbCodeSetting">Enable BBCode:</label></td>
+						<td class="setting"><input type="checkbox" id="bbCodeSetting" onclick="ajaxChat.setSetting('bbCode', this.checked);"/></td>
+					</tr>
+					<tr class="rowEven">
+						<td><label for="bbCodeImagesSetting">Enable image BBCode:</label></td>
+						<td class="setting"><input type="checkbox" id="bbCodeImagesSetting" onclick="ajaxChat.setSetting('bbCodeImages', this.checked);"/></td>
+					</tr>
+					<tr class="rowOdd">
+						<td><label for="bbCodeColorsSetting">Enable font color BBCode:</label></td>
+						<td class="setting"><input type="checkbox" id="bbCodeColorsSetting" onclick="ajaxChat.setSetting('bbCodeColors', this.checked);"/></td>
+					</tr>
+					<tr class="rowEven">
+						<td><label for="hyperLinksSetting">Enable hyperlinks:</label></td>
+						<td class="setting"><input type="checkbox" id="hyperLinksSetting" onclick="ajaxChat.setSetting('hyperLinks', this.checked);"/></td>
+					</tr>
+					<tr class="rowOdd">
+						<td><label for="lineBreaksSetting">Enable line breaks:</label></td>
+						<td class="setting"><input type="checkbox" id="lineBreaksSetting" onclick="ajaxChat.setSetting('lineBreaks', this.checked);"/></td>
+					</tr>
+					<tr class="rowEven">
+						<td><label for="emoticonsSetting">Enable emoticons:</label></td>
+						<td class="setting"><input type="checkbox" id="emoticonsSetting" onclick="ajaxChat.setSetting('emoticons', this.checked);"/></td>
+					</tr>
+					<tr class="rowOdd">
+						<td><label for="autoFocusSetting">Automatically set the focus on the input field:</label></td>
+						<td class="setting"><input type="checkbox" id="autoFocusSetting" onclick="ajaxChat.setSetting('autoFocus', this.checked);"/></td>
+					</tr>
+					<tr class="rowEven">
+						<td><label for="maxMessagesSetting">Maximum number of messages in the chatlist:</label></td>
+						<td class="setting"><input type="text" class="text" id="maxMessagesSetting" onchange="ajaxChat.setSetting('maxMessages', parseInt(this.value));"/></td>
+					</tr>
+					<tr class="rowOdd">
+						<td><label for="wordWrapSetting">Enable wrapping of long words:</label></td>
+						<td class="setting"><input type="checkbox" id="wordWrapSetting" onclick="ajaxChat.setSetting('wordWrap', this.checked);"/></td>
+					</tr>
+					<tr class="rowEven">
+						<td><label for="maxWordLengthSetting">Maximum length of a word before it gets wrapped:</label></td>
+						<td class="setting"><input type="text" class="text" id="maxWordLengthSetting" onchange="ajaxChat.setSetting('maxWordLength', parseInt(this.value));"/></td>
+					</tr>
+					<tr class="rowOdd">
+						<td><label for="dateFormatSetting">Format of date and time display:</label></td>
+						<td class="setting"><input type="text" class="text" id="dateFormatSetting" onchange="ajaxChat.setSetting('dateFormat', this.value);"/></td>
+					</tr>
+					<tr class="rowEven">
+						<td><label for="persistFontColorSetting">Persist font color:</label></td>
+						<td class="setting"><input type="checkbox" id="persistFontColorSetting" onclick="ajaxChat.setPersistFontColor(this.checked);"/></td>
+					</tr>
+					<tr class="rowOdd">
+						<td><label for="audioVolumeSetting">Sound Volume:</label></td>
+						<td class="setting">
+							<select class="left" id="audioVolumeSetting" onchange="ajaxChat.setAudioVolume(this.options[this.selectedIndex].value);">
+								<option value="1.0">100 %</option>
+								<option value="0.9">90 %</option>
+								<option value="0.8">80 %</option>
+								<option value="0.7">70 %</option>
+								<option value="0.6">60 %</option>
+								<option value="0.5">50 %</option>
+								<option value="0.4">40 %</option>
+								<option value="0.3">30 %</option>
+								<option value="0.2">20 %</option>
+								<option value="0.1">10 %</option>
+							</select>
+						</td>
+					</tr>
+					<tr class="rowEven">
+						<td><label for="soundReceiveSetting">Sound for incoming messages:</label></td>
+						<td class="setting">
+							<select id="soundReceiveSetting" onchange="ajaxChat.setSetting('soundReceive', this.options[this.selectedIndex].value);"><option value="">-</option></select><input type="image" src="gif/pixel.gif" class="button playback" alt="Play selected sound" title="Play selected sound" onclick="ajaxChat.playSound(this.previousSibling.options[this.previousSibling.selectedIndex].value);"/>
+						</td>
+					</tr>
+					<tr class="rowOdd">
+						<td><label for="soundSendSetting">Sound for outgoing messages:</label></td>
+						<td class="setting">
+							<select id="soundSendSetting" onchange="ajaxChat.setSetting('soundSend', this.options[this.selectedIndex].value);"><option value="">-</option></select><input type="image" src="gif/pixel.gif" class="button playback" alt="Play selected sound" title="Play selected sound" onclick="ajaxChat.playSound(this.previousSibling.options[this.previousSibling.selectedIndex].value);"/>
+						</td>
+					</tr>
+					<tr class="rowEven">
+						<td><label for="soundEnterSetting">Sound for login and channel enter messages:</label></td>
+						<td class="setting">
+							<select id="soundEnterSetting" onchange="ajaxChat.setSetting('soundEnter', this.options[this.selectedIndex].value);"><option value="">-</option></select><input type="image" src="gif/pixel.gif" class="button playback" alt="Play selected sound" title="Play selected sound" onclick="ajaxChat.playSound(this.previousSibling.options[this.previousSibling.selectedIndex].value);"/>
+						</td>
+					</tr>
+					<tr class="rowOdd">
+						<td><label for="soundLeaveSetting">Sound for logout and channel leave messages:</label></td>
+						<td class="setting">
+							<select id="soundLeaveSetting" onchange="ajaxChat.setSetting('soundLeave', this.options[this.selectedIndex].value);"><option value="">-</option></select><input type="image" src="gif/pixel.gif" class="button playback" alt="Play selected sound" title="Play selected sound" onclick="ajaxChat.playSound(this.previousSibling.options[this.previousSibling.selectedIndex].value);"/>
+						</td>
+					</tr>
+					<tr class="rowEven">
+						<td><label for="soundChatBotSetting">Sound for chatbot messages:</label></td>
+						<td class="setting">
+							<select id="soundChatBotSetting" onchange="ajaxChat.setSetting('soundChatBot', this.options[this.selectedIndex].value);"><option value="">-</option></select><input type="image" src="gif/pixel.gif" class="button playback" alt="Play selected sound" title="Play selected sound" onclick="ajaxChat.playSound(this.previousSibling.options[this.previousSibling.selectedIndex].value);"/>
+						</td>
+					</tr>
+					<tr class="rowOdd">
+						<td><label for="soundErrorSetting">Sound for error messages:</label></td>
+						<td class="setting">
+							<select id="soundErrorSetting" onchange="ajaxChat.setSetting('soundError', this.options[this.selectedIndex].value);"><option value="">-</option></select><input type="image" src="gif/pixel.gif" class="button playback" alt="Play selected sound" title="Play selected sound" onclick="ajaxChat.playSound(this.previousSibling.options[this.previousSibling.selectedIndex].value);"/>
+						</td>
+					</tr>
+					<tr class="rowEven">
+						<td><label for="blinkSetting">Blink window title on new messages:</label></td>
+						<td class="setting"><input type="checkbox" id="blinkSetting" onclick="ajaxChat.setSetting('blink', this.checked);"/></td>
+					</tr>
+					<tr class="rowOdd">
+						<td><label for="blinkIntervalSetting">Blink interval in milliseconds:</label></td>
+						<td class="setting"><input type="text" class="text" id="blinkIntervalSetting" onchange="ajaxChat.setSetting('blinkInterval', parseInt(this.value));"/></td>
+					</tr>
+					<tr class="rowEven">
+						<td><label for="blinkIntervalNumberSetting">Number of blink intervals:</label></td>
+						<td class="setting"><input type="text" class="text" id="blinkIntervalNumberSetting" onchange="ajaxChat.setSetting('blinkIntervalNumber', parseInt(this.value));"/></td>
+					</tr>
+				</table>
+			</div>
+	  	</div>
+		<!--
+			Please retain the full copyright notice below including the link to blueimp.net.
+			This not only gives respect to the amount of time given freely by the developer
+			but also helps build interest, traffic and use of AJAX Chat.
+			
+			Thanks,
+			Sebastian Tschan
+		//-->
+		<div id="copyright"><a href="index.html" style="color:#0000ff"><b>back to Piroforum</b></a> &copy; <a href="https://blueimp.net/">blueimp.net</a> | <a href="http://4tmu.ir/forum/index.php">Integrated with SMF</a></div>
+	</div>
+	<div id="flashInterfaceContainer"></div>
+</body>
+
+
+<!-- Mirrored by: HTTrack Website Copier/3.x. Site: piroforum.info. File: /chat/. Date: Mon, 18 Dec 2023 15:42:52 GMT -->
+</html>

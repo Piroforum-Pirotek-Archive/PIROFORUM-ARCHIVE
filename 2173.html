@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="index, follow" />
+<meta name="keywords" content="Игрушки, Школьные товары, Доски, Журналы" />
+<meta name="description" content="Оптово-розничная продажа учебных пособий, игрушек, журналов и т.п." />
+<link href="/bitrix/js/ui/bootstrap4/css/bootstrap.css?1650127085182028" type="text/css"  rel="stylesheet" />
+<link href="/local/templates/lenbaza/src/css/vendor.css?165947115645662" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<link href="/local/templates/lenbaza/src/css/main.css?169739670698530" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<link href="/local/templates/lenbaza/components/bitrix/sale.basket.basket.line/mobile_basket/style.css?16606527564718" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<link href="/local/templates/lenbaza/components/bitrix/search.title/search_title/style.css?16589192751871" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<link href="/local/templates/lenbaza/components/bitrix/catalog.section.list/catalog_section_list/style.css?16548650172776" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<link href="/local/templates/lenbaza/components/bitrix/catalog.section.list/catalog_menu_lvl2/style.css?16551914682776" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<link href="/local/templates/lenbaza/components/bitrix/sale.basket.basket.line/header_basket/style.css?16502095494718" type="text/css"  data-template-style="true"  rel="stylesheet" />
+<script type="text/javascript">if(!window.BX)window.BX={};if(!window.BX.message)window.BX.message=function(mess){if(typeof mess==='object'){for(let i in mess) {BX.message[i]=mess[i];} return true;}};</script>
+<script type="text/javascript">(window.BX||top.BX).message({'JS_CORE_LOADING':'Загрузка...','JS_CORE_NO_DATA':'- Нет данных -','JS_CORE_WINDOW_CLOSE':'Закрыть','JS_CORE_WINDOW_EXPAND':'Развернуть','JS_CORE_WINDOW_NARROW':'Свернуть в окно','JS_CORE_WINDOW_SAVE':'Сохранить','JS_CORE_WINDOW_CANCEL':'Отменить','JS_CORE_WINDOW_CONTINUE':'Продолжить','JS_CORE_H':'ч','JS_CORE_M':'м','JS_CORE_S':'с','JSADM_AI_HIDE_EXTRA':'Скрыть лишние','JSADM_AI_ALL_NOTIF':'Показать все','JSADM_AUTH_REQ':'Требуется авторизация!','JS_CORE_WINDOW_AUTH':'Войти','JS_CORE_IMAGE_FULL':'Полный размер'});</script>
+
+<script type="text/javascript" src="/bitrix/js/main/core/core.js?1653310864478033"></script>
+
+<script>BX.setJSList(['/bitrix/js/main/core/core_ajax.js','/bitrix/js/main/core/core_promise.js','/bitrix/js/main/polyfill/promise/js/promise.js','/bitrix/js/main/loadext/loadext.js','/bitrix/js/main/loadext/extension.js','/bitrix/js/main/polyfill/promise/js/promise.js','/bitrix/js/main/polyfill/find/js/find.js','/bitrix/js/main/polyfill/includes/js/includes.js','/bitrix/js/main/polyfill/matches/js/matches.js','/bitrix/js/ui/polyfill/closest/js/closest.js','/bitrix/js/main/polyfill/fill/main.polyfill.fill.js','/bitrix/js/main/polyfill/find/js/find.js','/bitrix/js/main/polyfill/matches/js/matches.js','/bitrix/js/main/polyfill/core/dist/polyfill.bundle.js','/bitrix/js/main/core/core.js','/bitrix/js/main/polyfill/intersectionobserver/js/intersectionobserver.js','/bitrix/js/main/lazyload/dist/lazyload.bundle.js','/bitrix/js/main/polyfill/core/dist/polyfill.bundle.js','/bitrix/js/main/parambag/dist/parambag.bundle.js']);
+BX.setCSSList(['/bitrix/js/main/lazyload/dist/lazyload.bundle.css','/bitrix/js/main/parambag/dist/parambag.bundle.css']);</script>
+<script type="text/javascript">(window.BX||top.BX).message({'pull_server_enabled':'N','pull_config_timestamp':'0','pull_guest_mode':'N','pull_guest_user_id':'0'});(window.BX||top.BX).message({'PULL_OLD_REVISION':'Для продолжения корректной работы с сайтом необходимо перезагрузить страницу.'});</script>
+<script type="text/javascript">(window.BX||top.BX).message({'LANGUAGE_ID':'ru','FORMAT_DATE':'DD.MM.YYYY','FORMAT_DATETIME':'DD.MM.YYYY HH:MI:SS','COOKIE_PREFIX':'BITRIX_SM','SERVER_TZ_OFFSET':'10800','UTF_MODE':'Y','SITE_ID':'s1','SITE_DIR':'/','USER_ID':'','SERVER_TIME':'1702923244','USER_TZ_OFFSET':'0','USER_TZ_AUTO':'Y','bitrix_sessid':'328316a52b3ca53186880608b1ce4004'});</script>
+
+
+<script type="text/javascript" src="/bitrix/js/main/polyfill/customevent/main.polyfill.customevent.js?1650124489913"></script>
+<script type="text/javascript" src="/bitrix/js/ui/dexie/dist/dexie.bitrix.bundle.js?1650128117196472"></script>
+<script type="text/javascript" src="/bitrix/js/main/core/core_ls.js?165012448910430"></script>
+<script type="text/javascript" src="/bitrix/js/main/core/core_fx.js?165012448916888"></script>
+<script type="text/javascript" src="/bitrix/js/main/core/core_frame_cache.js?165331086417069"></script>
+<script type="text/javascript" src="/bitrix/js/pull/protobuf/protobuf.js?1650127066274055"></script>
+<script type="text/javascript" src="/bitrix/js/pull/protobuf/model.js?165012706670928"></script>
+<script type="text/javascript" src="/bitrix/js/rest/client/rest.client.js?165012766817414"></script>
+<script type="text/javascript" src="/bitrix/js/pull/client/pull.client.js?165012805070757"></script>
+<script type="text/javascript" src="/bitrix/js/main/jquery/jquery-3.3.1.min.js?165012448986927"></script>
+<script type="text/javascript" src="/bitrix/js/ui/bootstrap4/js/bootstrap.js?1650124544123765"></script>
+<script type="text/javascript" src="/bitrix/js/altasib.feedback/jquery.maskedinput/jquery.maskedinput.min.js?16608954094312"></script>
+<script type="text/javascript">
+					(function () {
+						"use strict";
+
+						var counter = function ()
+						{
+							var cookie = (function (name) {
+								var parts = ("; " + document.cookie).split("; " + name + "=");
+								if (parts.length == 2) {
+									try {return JSON.parse(decodeURIComponent(parts.pop().split(";").shift()));}
+									catch (e) {}
+								}
+							})("BITRIX_CONVERSION_CONTEXT_s1");
+
+							if (cookie && cookie.EXPIRE >= BX.message("SERVER_TIME"))
+								return;
+
+							var request = new XMLHttpRequest();
+							request.open("POST", "/bitrix/tools/conversion/ajax_counter.php", true);
+							request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+							request.send(
+								"SITE_ID="+encodeURIComponent("s1")+
+								"&sessid="+encodeURIComponent(BX.bitrix_sessid())+
+								"&HTTP_REFERER="+encodeURIComponent(document.referrer)
+							);
+						};
+
+						if (window.frameRequestStart === true)
+							BX.addCustomEvent("onFrameDataReceived", counter);
+						else
+							BX.ready(counter);
+					})();
+				</script>
+<link rel="icon" type="image/x-icon" href="/local/templates/lenbaza/favicon.ico" />
+<link rel="icon" type="image/svg+xml" href="/local/templates/lenbaza/favicon-120x120.svg" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<script type="text/javascript" src="/local/templates/lenbaza/src/js/main.js?1678564113154514"></script>
+<script type="text/javascript" src="/local/templates/lenbaza/components/bitrix/sale.basket.basket.line/mobile_basket/script.js?16606527565335"></script>
+<script type="text/javascript" src="/bitrix/components/bitrix/search.title/script.js?16684615359938"></script>
+<script type="text/javascript" src="/local/templates/lenbaza/components/bitrix/sale.basket.basket.line/header_basket/script.js?16502095495335"></script>
+<script type="text/javascript" src="/local/templates/lenbaza/components/altasib/feedback.form/footer_feedback_form/form_script.js?166090485716052"></script>
+<script type="text/javascript">var _ba = _ba || []; _ba.push(["aid", "f132abb128034ba8e160ff3bb30ac35c"]); _ba.push(["host", "www.lenbaza.ru"]); (function() {var ba = document.createElement("script"); ba.type = "text/javascript"; ba.async = true;ba.src = (document.location.protocol == "https:" ? "https://" : "http://") + "bitrix.info/ba.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ba, s);})();</script>
+
+
+    <meta charset="UTF-8">
+    <title>Страница не найдена</title>
+    <!--<script defer src="/src/js/main.js"></script>-->
+    <!--
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="theme-color" content="#111111">-->
+</head>
+<body>
+<div id="panel"></div>
+<div class="site-container">
+    <header class="page-header">
+        <div class="page-header__wrapper">
+            <div class="page-header__top-wrapper top-nav">
+                <div class="top-nav__wrapper">
+                    <!--'start_frame_cache_LkGdQn'-->
+
+<ul class="top-nav__list top-nav__list--nav">
+
+			<li class="top-nav__list-item top-nav__list-item--excel">
+            <a class="top-nav__link" href="/upload/price.xls">Прайс</a>
+        </li>
+				<li class="top-nav__list-item ">
+            <a class="top-nav__link" href="/delivery/">Оплата и доставка</a>
+        </li>
+				<li class="top-nav__list-item top-nav__list-item--desktop">
+            <a class="top-nav__link" href="/news/">Новости</a>
+        </li>
+				<li class="top-nav__list-item top-nav__list-item--desktop">
+            <a class="top-nav__link" href="/about/">О компании</a>
+        </li>
+				<li class="top-nav__list-item ">
+            <a class="top-nav__link" href="/contacts/">Контакты</a>
+        </li>
+	
+</ul>
+<!--'end_frame_cache_LkGdQn'-->                    <ul class="top-nav__list top-nav__list--contacts">
+                        <li class="top-nav__list-item">
+                            <a class="top-nav__link top-nav__link--semibold" href="tel:+7-911-922-45-05">8 (812) 922-45-05</a>
+                        </li>
+                        <li class="top-nav__list-item">
+                            <a class="top-nav__link top-nav__link--semibold" href="mailto:info@lenbaza.ru">info@lenbaza.ru</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-header__middle-wrapper">
+                <div class="page-header__mobile-menu mobile-menu mobile-menu--closed mobile-menu--nojs">
+                    <button class="mobile-menu__toggle" type="button">
+                        <span class="visually-hidden">Открыть меню</span>
+                    </button>
+                    <a class="page-header__logo-container" href="/">
+                        <img class="page-header__logo-image" src="/local/templates/lenbaza/img/logo.svg" width="178"
+                             height="26" alt="Логотип Ленбазы">
+                    </a>
+                    <div class="page-header__basket-icon icon-links icon-links--mobile">
+                        <script>
+var bx_basketFKauiI = new BitrixSmallCart;
+</script>
+<div class="icon-links__item icon-links__item--basket" id="bx_basketFKauiI">
+    <!--'start_frame_cache_bx_basketFKauiI'-->
+<!--<div class="icon-links__item icon-links__item--favorite">
+    <a href="#" class="icon-links__link">
+        <span>Избранное</span>
+        <svg class="icon-links__icon" width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M26.3947 3.12177C25.7223 2.44911 24.924 1.9155 24.0454 1.55144C23.1668 1.18738 22.225 1 21.2739 1C20.3229 1 19.3811 1.18738 18.5025 1.55144C17.6239 1.9155 16.8256 2.44911 16.1532 3.12177L14.7579 4.51714L13.3625 3.12177C12.0044 1.76368 10.1624 1.0007 8.24179 1.0007C6.32115 1.0007 4.47917 1.76368 3.12107 3.12177C1.76297 4.47987 1 6.32185 1 8.24249C1 10.1631 1.76297 12.0051 3.12107 13.3632L4.51643 14.7586L14.7579 25L24.9993 14.7586L26.3947 13.3632C27.0673 12.6909 27.6009 11.8926 27.965 11.0139C28.329 10.1353 28.5164 9.19356 28.5164 8.24249C28.5164 7.29142 28.329 6.34967 27.965 5.47104C27.6009 4.59241 27.0673 3.79412 26.3947 3.12177V3.12177Z" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="icon-links__counter">5</span>
+    </a>
+</div>-->
+
+
+
+<a href="/personal/cart/" class="icon-links__link">
+                <span>Корзина</span>
+            <svg class="icon-links__icon" width="29" height="26" viewBox="0 0 29 26" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 10.4706V9.47059C0.701362 9.47059 0.418353 9.60406 0.22839 9.83449C0.0384277 10.0649 -0.0386052 10.3682 0.018364 10.6614L1 10.4706ZM27.8235 10.4706L28.8052 10.6614C28.8621 10.3682 28.7851 10.0649 28.5951 9.83449C28.4052 9.60406 28.1222 9.47059 27.8235 9.47059V10.4706ZM4.49064 23.1908L1.98164 10.2798L0.018364 10.6614L2.52737 23.5723L4.49064 23.1908ZM26.8419 10.2798L24.3329 23.1908L26.2962 23.5723L28.8052 10.6614L26.8419 10.2798ZM23.3512 24H5.47228V26H23.3512V24ZM1 11.4706H8.05882V9.47059H1V11.4706ZM8.05882 10.4706C9.05606 10.3963 9.05608 10.3966 9.0561 10.3969C9.05611 10.3969 9.05613 10.3972 9.05613 10.3973C9.05615 10.3975 9.05615 10.3975 9.05614 10.3974C9.05613 10.3973 9.05608 10.3965 9.05599 10.3953C9.05582 10.3927 9.0555 10.3879 9.05507 10.381C9.0542 10.3672 9.05289 10.3449 9.05139 10.3146C9.04838 10.254 9.04459 10.1617 9.04205 10.0424C9.03696 9.80329 9.03688 9.45728 9.05759 9.04044C9.09931 8.20085 9.22409 7.1026 9.54655 6.021C9.87061 4.93407 10.3751 3.92812 11.1331 3.20177C11.867 2.49844 12.8959 2 14.4118 2V0C12.3982 0 10.8683 0.685385 9.74927 1.75779C8.65427 2.80717 8.01175 4.16887 7.62992 5.44958C7.2465 6.73563 7.10657 8.00504 7.06006 8.94118C7.03665 9.41221 7.03657 9.80609 7.04251 10.0849C7.04548 10.2245 7.04997 10.3357 7.05385 10.4139C7.05579 10.4529 7.05759 10.4838 7.05896 10.5058C7.05965 10.5168 7.06024 10.5256 7.06068 10.5322C7.06091 10.5355 7.0611 10.5382 7.06125 10.5403C7.06133 10.5413 7.06139 10.5423 7.06145 10.543C7.06148 10.5434 7.06151 10.5439 7.06153 10.5441C7.06156 10.5445 7.06159 10.5449 8.05882 10.4706ZM8.05882 11.4706H20.7647V9.47059H8.05882V11.4706ZM20.7647 11.4706H27.8235V9.47059H20.7647V11.4706ZM14.4118 2C15.9276 2 16.9565 2.49844 17.6904 3.20177C18.4484 3.92812 18.9529 4.93407 19.277 6.021C19.5994 7.1026 19.7242 8.20085 19.7659 9.04044C19.7866 9.45728 19.7866 9.80329 19.7815 10.0424C19.7789 10.1617 19.7752 10.254 19.7721 10.3146C19.7706 10.3449 19.7693 10.3672 19.7685 10.381C19.768 10.3879 19.7677 10.3927 19.7675 10.3953C19.7674 10.3965 19.7674 10.3973 19.7674 10.3974C19.7674 10.3975 19.7674 10.3975 19.7674 10.3973C19.7674 10.3972 19.7674 10.3969 19.7674 10.3969C19.7674 10.3966 19.7675 10.3963 20.7647 10.4706C21.7619 10.5449 21.762 10.5445 21.762 10.5441C21.762 10.5439 21.7621 10.5434 21.7621 10.543C21.7621 10.5423 21.7622 10.5413 21.7623 10.5403C21.7624 10.5382 21.7626 10.5355 21.7628 10.5322C21.7633 10.5256 21.7639 10.5168 21.7646 10.5058C21.7659 10.4838 21.7677 10.4529 21.7697 10.4139C21.7736 10.3357 21.7781 10.2245 21.781 10.0849C21.787 9.80609 21.7869 9.41221 21.7635 8.94118C21.717 8.00504 21.577 6.73563 21.1936 5.44958C20.8118 4.16887 20.1693 2.80717 19.0743 1.75779C17.9552 0.685385 16.4253 0 14.4118 0V2ZM24.3329 23.1908C24.2416 23.6607 23.83 24 23.3512 24V26C24.7874 26 26.0222 24.9821 26.2962 23.5723L24.3329 23.1908ZM2.52737 23.5723C2.80135 24.9821 4.03608 26 5.47228 26V24C4.99355 24 4.58197 23.6607 4.49064 23.1908L2.52737 23.5723Z"
+                      fill="#0B0B0B"/>
+            </svg>
+                                <span class="icon-links__counter">0</span>
+                
+        </a>
+<!--'end_frame_cache_bx_basketFKauiI'--></div>
+<script type="text/javascript">
+	bx_basketFKauiI.siteId       = 's1';
+	bx_basketFKauiI.cartId       = 'bx_basketFKauiI';
+	bx_basketFKauiI.ajaxPath     = '/bitrix/components/bitrix/sale.basket.basket.line/ajax.php';
+	bx_basketFKauiI.templateName = 'mobile_basket';
+	bx_basketFKauiI.arParams     =  {'PATH_TO_BASKET':'/personal/cart/','PATH_TO_PERSONAL':'/personal/','SHOW_PERSONAL_LINK':'N','SHOW_NUM_PRODUCTS':'Y','SHOW_TOTAL_PRICE':'N','SHOW_PRODUCTS':'N','POSITION_FIXED':'N','SHOW_AUTHOR':'Y','PATH_TO_REGISTER':'/auth/registration.php','PATH_TO_PROFILE':'/personal/','COMPONENT_TEMPLATE':'mobile_basket','PATH_TO_ORDER':'/order/checkout/','SHOW_EMPTY_VALUES':'Y','PATH_TO_AUTHORIZE':'/auth/','SHOW_REGISTRATION':'N','HIDE_ON_BASKET_PAGES':'N','POSITION_HORIZONTAL':'right','POSITION_VERTICAL':'top','CACHE_TYPE':'A','SHOW_DELAY':'Y','SHOW_NOTAVAIL':'Y','SHOW_IMAGE':'Y','SHOW_PRICE':'Y','SHOW_SUMMARY':'Y','MAX_IMAGE_SIZE':'70','AJAX':'N','~PATH_TO_BASKET':'/personal/cart/','~PATH_TO_PERSONAL':'/personal/','~SHOW_PERSONAL_LINK':'N','~SHOW_NUM_PRODUCTS':'Y','~SHOW_TOTAL_PRICE':'N','~SHOW_PRODUCTS':'N','~POSITION_FIXED':'N','~SHOW_AUTHOR':'Y','~PATH_TO_REGISTER':'/auth/registration.php','~PATH_TO_PROFILE':'/personal/','~COMPONENT_TEMPLATE':'mobile_basket','~PATH_TO_ORDER':'/order/checkout/','~SHOW_EMPTY_VALUES':'Y','~PATH_TO_AUTHORIZE':'/auth/','~SHOW_REGISTRATION':'N','~HIDE_ON_BASKET_PAGES':'N','~POSITION_HORIZONTAL':'right','~POSITION_VERTICAL':'top','~CACHE_TYPE':'A','~SHOW_DELAY':'Y','~SHOW_NOTAVAIL':'Y','~SHOW_IMAGE':'Y','~SHOW_PRICE':'Y','~SHOW_SUMMARY':'Y','~MAX_IMAGE_SIZE':'70','~AJAX':'N','cartId':'bx_basketFKauiI'}; // TODO \Bitrix\Main\Web\Json::encode
+	bx_basketFKauiI.closeMessage = 'Скрыть';
+	bx_basketFKauiI.openMessage  = 'Раскрыть';
+	bx_basketFKauiI.activate();
+</script>
+                    </div>
+                    <div class="page-header__search-wrapper">
+                        <div id="title-search" class="bx-searchtitle page-header__search-form search-form">
+    <div class="search-form__wrapper">
+	<form action="/catalog/">
+
+            <div class="input-group">
+                <input id="title-search-input" type="text" name="q" value="" autocomplete="off" class="form-control"/>
+                <div class="input-group-append">
+                    <button class="btn btn-primary search-title-button" type="submit" name="s">
+                        <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="7.11111" cy="7.44412" r="6.36111" stroke="#0D0D0D" stroke-width="1.5"/>
+                            <path d="M15.4697 16.8633C15.7625 17.1562 16.2374 17.1562 16.5303 16.8633C16.8232 16.5704 16.8232 16.0956 16.5303 15.8027L15.4697 16.8633ZM16.5303 15.8027L12.0859 11.3582L11.0252 12.4189L15.4697 16.8633L16.5303 15.8027Z" fill="#0D0D0D"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+	</form>
+    </div>
+</div>
+<script>
+	BX.ready(function(){
+		new JCTitleSearch({
+			'AJAX_PAGE' : '/baza/pict/2173.jpg',
+			'CONTAINER_ID': 'title-search',
+			'INPUT_ID': 'title-search-input',
+			'MIN_QUERY_LEN': 2
+		});
+	});
+</script>
+
+                    </div>
+                    <div class="page-header__nav mobile-menu__nav main-nav">
+                        <ul class="main-nav__list">
+                            <li class="main-nav__list-item">
+                                <a class="main-nav__link" href="/delivery/">Оплата и доставка</a>
+                            </li>
+                            <li class="main-nav__list-item">
+                                <a class="main-nav__link" href="/news/">Новости</a>
+                            </li>
+                            <li class="main-nav__list-item">
+                                <a class="main-nav__link" href="/about/">О компании</a>
+                            </li>
+                            <li class="main-nav__list-item">
+                                <a class="main-nav__link" href="/contacts/">Контакты</a>
+                            </li>
+                        </ul>
+                        <ul class="main-nav__contact-list contact-list">
+                            <li class="contact-list__item">
+                                <a class="contact-list__link" href="tel:+7-911-922-45-05">8 (812) 922-45-05</a>
+                            </li>
+                            <li class="contact-list__item">
+                                <a class="contact-list__link" href="mailto:info@lenbaza.ru">info@lenbaza.ru</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="page-header__catalog-menu">
+                        <div class="catalog-menu-new">
+                            <div class="catalog-menu-new__container">
+                                <div class="catalog-menu-new__left-area">
+                                    <div class="catalog-menu-new-main-list">
+        <div class="catalog-section-list-list">	        <div class="catalog-menu-new-main-list__item" id="bx_1847241719_150 "
+             data-index="150">
+            <button class="catalog-menu-new-main-list__button" style="background-image: url(/upload/iblock/294/6t4bejtwma3toadx6er04163myrt9xdc.png)"
+                    >Доски, мольберты, стенды            </button>
+            <svg class="catalog-menu-new__arrow-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L6 6L1 1" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+	        <div class="catalog-menu-new-main-list__item" id="bx_1847241719_94 "
+             data-index="94">
+            <button class="catalog-menu-new-main-list__button" style="background-image: url(/upload/iblock/b8e/kunpq9b9d06d00cgtcwvl3cp1egr2ycl.png)"
+                    >Журнально-бланочная продукция            </button>
+            <svg class="catalog-menu-new__arrow-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L6 6L1 1" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+	        <div class="catalog-menu-new-main-list__item" id="bx_1847241719_160 "
+             data-index="160">
+            <button class="catalog-menu-new-main-list__button" style="background-image: url(/upload/iblock/e76/ox1kx47xwppq4e47f9y0407kn0pvinus.png)"
+                    >Мебель школьная и игровая            </button>
+            <svg class="catalog-menu-new__arrow-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L6 6L1 1" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+	        <div class="catalog-menu-new-main-list__item" id="bx_1847241719_98 "
+             data-index="98">
+            <button class="catalog-menu-new-main-list__button" style="background-image: url(/upload/iblock/46a/by20dhrxo4lbxu43n3hettmny9vlonjt.png)"
+                    >Игрушки            </button>
+            <svg class="catalog-menu-new__arrow-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L6 6L1 1" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+	        <div class="catalog-menu-new-main-list__item" id="bx_1847241719_141 "
+             data-index="141">
+            <button class="catalog-menu-new-main-list__button" style="background-image: url(/upload/iblock/849/qnjyyzr0yo0vkp2wvoz8d9fm3x64f80z.png)"
+                    >Учебные пособия            </button>
+            <svg class="catalog-menu-new__arrow-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L6 6L1 1" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+	        <div class="catalog-menu-new-main-list__item" id="bx_1847241719_172 "
+             data-index="172">
+            <button class="catalog-menu-new-main-list__button" style="background-image: url(/upload/iblock/c06/0nzn6hjrrxlan2zx5ana2rh7gkvz1vmm.png)"
+                    >Костюмы и постельное белье            </button>
+            <svg class="catalog-menu-new__arrow-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L6 6L1 1" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+	        <div class="catalog-menu-new-main-list__item" id="bx_1847241719_106 "
+             data-index="106">
+            <button class="catalog-menu-new-main-list__button" style="background-image: url(/upload/iblock/861/mdr4jdjj2mh93alz442lttgzk6immjp9.png)"
+                    >Игры            </button>
+            <svg class="catalog-menu-new__arrow-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L6 6L1 1" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+	        <div class="catalog-menu-new-main-list__item" id="bx_1847241719_175 "
+             data-index="175">
+            <button class="catalog-menu-new-main-list__button" style="background-image: url(/upload/iblock/fa2/esqs3xfy5t14m06x0oq9bbywq0kslxk5.png)"
+                    >Мультимедиа            </button>
+            <svg class="catalog-menu-new__arrow-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L6 6L1 1" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+	        <div class="catalog-menu-new-main-list__item" id="bx_1847241719_115 "
+             data-index="115">
+            <button class="catalog-menu-new-main-list__button" style="background-image: url(/upload/iblock/e9d/vsyvs3nxhsm06rvd3ihlom5737pja0jl.png)"
+                    >Спорттовары            </button>
+            <svg class="catalog-menu-new__arrow-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L6 6L1 1" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+</div>    </div>
+                                </div>
+                                <div class="catalog-menu-new__right-area">
+                                    
+<div class="catalog-menu-new-submenu">
+    <div class="catalog-menu-new-submenu__item-extra">
+        <svg class="catalog-menu-new__arrow-icon-back" width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 1L2 9L10 17" stroke="#B5B5B5" stroke-width="2"/>
+        </svg>
+        <a href="#" class="catalog-menu-new-submenu__back">Назад</a>
+    </div>
+    <div class="catalog-menu-new-submenu__item-extra">
+        <p class="catalog-menu-new-submenu__title"></p>
+    </div>
+                            <div class="catalog-menu-new-submenu__item" id="bx_4145281613_151" data-index="150">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/doski_molberty_stendy/doski/">Доски</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_153" data-index="150">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/doski_molberty_stendy/molberty/">Мольберты</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_154" data-index="150">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/doski_molberty_stendy/stendy_i_ekrany/">Стенды и экраны</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_152" data-index="150">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/doski_molberty_stendy/prinadlezhnosti_dlya_dosok/">Принадлежности для досок</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_155" data-index="94">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/zhurnalno_blanochnaya_produktsiya/blanki/">Бланки</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_95" data-index="94">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/zhurnalno_blanochnaya_produktsiya/gramoty/">Грамоты</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_192" data-index="94">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/zhurnalno_blanochnaya_produktsiya/kantselyariya/">Канцелярия</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_96" data-index="94">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/zhurnalno_blanochnaya_produktsiya/zhurnaly/">Журналы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_193" data-index="94">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/zhurnalno_blanochnaya_produktsiya/udostoveryayushchie_dokumenty/">Удостоверяющие документы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_97" data-index="94">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/zhurnalno_blanochnaya_produktsiya/knigi_ucheta/">Книги учета</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_174" data-index="94">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/zhurnalno_blanochnaya_produktsiya/adresnye_papki/">Адресные папки</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_158" data-index="94">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/zhurnalno_blanochnaya_produktsiya/oblozhki/">Обложки</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_161" data-index="160">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/mebel_shkolnaya_i_igrovaya/prochee/">Прочее</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_163" data-index="160">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/mebel_shkolnaya_i_igrovaya/verstaki_stanki_i_komplektuyushchie/">Верстаки, станки и комплектующие</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_167" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/lego/">LEGO</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_165" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/prochie/">Прочие</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_162" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/muzykalnye_instrumenty/">Музыкальные инструменты</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_99" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/igrovye_nabory/">Игровые наборы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_100" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/konstruktory/">Конструкторы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_191" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/prinadlezhnosti_dlya_kukol/">Принадлежности для кукол</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_101" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/kubiki/">Кубики</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_110" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/katalki/">Каталки</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_102" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/kukly/">Куклы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_103" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/pesochnye_nabory/">Песочные наборы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_104" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/piramidki/">Пирамидки</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_105" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/posuda/">Посуда</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_111" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/kukolnye_teatry/">Кукольные театры</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_112" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/sortery/">Сортеры</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_113" data-index="98">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igrushki/tekhnika/">Техника</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_169" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/globusy/">Глобусы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_170" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/kollektsii/">Коллекции</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_181" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/portrety/">Портреты</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_171" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/mulyazhi/">Муляжи</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_142" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/demonstratsionnyy_material/">Демонстрационный материал</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_159" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/karty_i_gos_simvoly/">Карты и гос. символы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_144" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/magnitnye_posobiya/">Магнитные пособия</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_164" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/rabochie_tetradi/">Рабочие тетради</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_143" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/didakticheskiy_material/">Дидактический материал</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_145" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/plakaty_i_tablitsy/">Плакаты и таблицы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_146" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/razdatochnyy_material/">Раздаточный материал</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_157" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/laboratornoe_oborudovanie/">Лабораторное оборудование</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_156" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/modeli/">Модели</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_178" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/demonstratsionnoe_oborudovanie/">Демонстрационное оборудование</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_194" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/makety/">Макеты</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_179" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/nabory/">Наборы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_180" data-index="141">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/uchebnye_posobiya/reproduktsii/">Репродукции</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_173" data-index="172">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/kostyumy_i_postelnoe_bele/kostyumy/">Костюмы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_166" data-index="106">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igry/nastolnye_igry/">Настольные игры</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_168" data-index="106">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igry/podvizhnye_igry/">Подвижные игры</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_107" data-index="106">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igry/razvivayushchie_igry/">Развивающие игры</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_114" data-index="106">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/igry/nastolno_pechatnye_igry/">Настольно-печатные игры</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_176" data-index="175">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/multimedia/interaktivnye_posobiya/">Интерактивные пособия</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_177" data-index="175">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/multimedia/kombinirovannye_posobiya/">Комбинированные пособия</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_185" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/aksessuary/">Аксессуары</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_189" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/myagkie_moduli/">Мягкие модули</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_186" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/volany/">Воланы</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_182" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/oborudovaniya_dlya_estafet/">Оборудования для эстафет</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_187" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/maty/">Маты</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_183" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/obruchi/">Обручи</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_188" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/palki/">Палки</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_184" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/skakalki/">Скакалки</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_117" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/massazhery/">Массажеры</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_140" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/shakhmaty_shashki_nardy/">Шахматы, шашки, нарды</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_190" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/kanaty/">Канаты</a>
+            </div>
+
+                                <div class="catalog-menu-new-submenu__item" id="bx_4145281613_116" data-index="115">
+                <a class="catalog-menu-new-submenu__link" href="/catalog/sporttovary/myachi/">Мячи</a>
+            </div>
+
+                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-header__btn-wrapper mobile-menu__btn-wrapper">
+                        <button class="page-header__catalog-btn">Каталог</button>
+                    </div>
+                    <script>
+var bx_basketT0kNhm = new BitrixSmallCart;
+</script>
+<div id="bx_basketT0kNhm" class="page-header__links-wrapper mobile-menu__links-wrapper icon-links"><!--'start_frame_cache_bx_basketT0kNhm'-->
+<!--<div class="icon-links__item icon-links__item--favorite">
+    <a href="#" class="icon-links__link">
+        <span>Избранное</span>
+        <svg class="icon-links__icon" width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M26.3947 3.12177C25.7223 2.44911 24.924 1.9155 24.0454 1.55144C23.1668 1.18738 22.225 1 21.2739 1C20.3229 1 19.3811 1.18738 18.5025 1.55144C17.6239 1.9155 16.8256 2.44911 16.1532 3.12177L14.7579 4.51714L13.3625 3.12177C12.0044 1.76368 10.1624 1.0007 8.24179 1.0007C6.32115 1.0007 4.47917 1.76368 3.12107 3.12177C1.76297 4.47987 1 6.32185 1 8.24249C1 10.1631 1.76297 12.0051 3.12107 13.3632L4.51643 14.7586L14.7579 25L24.9993 14.7586L26.3947 13.3632C27.0673 12.6909 27.6009 11.8926 27.965 11.0139C28.329 10.1353 28.5164 9.19356 28.5164 8.24249C28.5164 7.29142 28.329 6.34967 27.965 5.47104C27.6009 4.59241 27.0673 3.79412 26.3947 3.12177V3.12177Z" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="icon-links__counter">5</span>
+    </a>
+</div>-->
+
+    <div class="icon-links__item icon-links__item--login">
+        <script type="text/javascript">bx_basketT0kNhm.currentUrl = '%2Fbaza%2Fpict%2F2173.jpg';</script>            <a href="/auth/?login=yes&backurl=%2Fbaza%2Fpict%2F2173.jpg" class="icon-links__link">
+                <span>Войти</span>
+                <svg class="icon-links__icon" width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.3333 25V22.3333C22.3333 20.9188 21.7714 19.5623 20.7712 18.5621C19.771 17.5619 18.4145 17 17 17H6.33333C4.91885 17 3.56229 17.5619 2.5621 18.5621C1.5619 19.5623 1 20.9188 1 22.3333V25" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11.6667 11.6667C14.6122 11.6667 17 9.27885 17 6.33333C17 3.38781 14.6122 1 11.6667 1C8.72119 1 6.33337 3.38781 6.33337 6.33333C6.33337 9.27885 8.72119 11.6667 11.6667 11.6667Z" stroke="#0B0B0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+                        </div>
+
+
+<div class="icon-links__item icon-links__item--basket">
+            <a href="/personal/cart/" class="icon-links__link">
+            <span>Корзина</span>
+            <svg class="icon-links__icon" width="29" height="26" viewBox="0 0 29 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 10.4706V9.47059C0.701362 9.47059 0.418353 9.60406 0.22839 9.83449C0.0384277 10.0649 -0.0386052 10.3682 0.018364 10.6614L1 10.4706ZM27.8235 10.4706L28.8052 10.6614C28.8621 10.3682 28.7851 10.0649 28.5951 9.83449C28.4052 9.60406 28.1222 9.47059 27.8235 9.47059V10.4706ZM4.49064 23.1908L1.98164 10.2798L0.018364 10.6614L2.52737 23.5723L4.49064 23.1908ZM26.8419 10.2798L24.3329 23.1908L26.2962 23.5723L28.8052 10.6614L26.8419 10.2798ZM23.3512 24H5.47228V26H23.3512V24ZM1 11.4706H8.05882V9.47059H1V11.4706ZM8.05882 10.4706C9.05606 10.3963 9.05608 10.3966 9.0561 10.3969C9.05611 10.3969 9.05613 10.3972 9.05613 10.3973C9.05615 10.3975 9.05615 10.3975 9.05614 10.3974C9.05613 10.3973 9.05608 10.3965 9.05599 10.3953C9.05582 10.3927 9.0555 10.3879 9.05507 10.381C9.0542 10.3672 9.05289 10.3449 9.05139 10.3146C9.04838 10.254 9.04459 10.1617 9.04205 10.0424C9.03696 9.80329 9.03688 9.45728 9.05759 9.04044C9.09931 8.20085 9.22409 7.1026 9.54655 6.021C9.87061 4.93407 10.3751 3.92812 11.1331 3.20177C11.867 2.49844 12.8959 2 14.4118 2V0C12.3982 0 10.8683 0.685385 9.74927 1.75779C8.65427 2.80717 8.01175 4.16887 7.62992 5.44958C7.2465 6.73563 7.10657 8.00504 7.06006 8.94118C7.03665 9.41221 7.03657 9.80609 7.04251 10.0849C7.04548 10.2245 7.04997 10.3357 7.05385 10.4139C7.05579 10.4529 7.05759 10.4838 7.05896 10.5058C7.05965 10.5168 7.06024 10.5256 7.06068 10.5322C7.06091 10.5355 7.0611 10.5382 7.06125 10.5403C7.06133 10.5413 7.06139 10.5423 7.06145 10.543C7.06148 10.5434 7.06151 10.5439 7.06153 10.5441C7.06156 10.5445 7.06159 10.5449 8.05882 10.4706ZM8.05882 11.4706H20.7647V9.47059H8.05882V11.4706ZM20.7647 11.4706H27.8235V9.47059H20.7647V11.4706ZM14.4118 2C15.9276 2 16.9565 2.49844 17.6904 3.20177C18.4484 3.92812 18.9529 4.93407 19.277 6.021C19.5994 7.1026 19.7242 8.20085 19.7659 9.04044C19.7866 9.45728 19.7866 9.80329 19.7815 10.0424C19.7789 10.1617 19.7752 10.254 19.7721 10.3146C19.7706 10.3449 19.7693 10.3672 19.7685 10.381C19.768 10.3879 19.7677 10.3927 19.7675 10.3953C19.7674 10.3965 19.7674 10.3973 19.7674 10.3974C19.7674 10.3975 19.7674 10.3975 19.7674 10.3973C19.7674 10.3972 19.7674 10.3969 19.7674 10.3969C19.7674 10.3966 19.7675 10.3963 20.7647 10.4706C21.7619 10.5449 21.762 10.5445 21.762 10.5441C21.762 10.5439 21.7621 10.5434 21.7621 10.543C21.7621 10.5423 21.7622 10.5413 21.7623 10.5403C21.7624 10.5382 21.7626 10.5355 21.7628 10.5322C21.7633 10.5256 21.7639 10.5168 21.7646 10.5058C21.7659 10.4838 21.7677 10.4529 21.7697 10.4139C21.7736 10.3357 21.7781 10.2245 21.781 10.0849C21.787 9.80609 21.7869 9.41221 21.7635 8.94118C21.717 8.00504 21.577 6.73563 21.1936 5.44958C20.8118 4.16887 20.1693 2.80717 19.0743 1.75779C17.9552 0.685385 16.4253 0 14.4118 0V2ZM24.3329 23.1908C24.2416 23.6607 23.83 24 23.3512 24V26C24.7874 26 26.0222 24.9821 26.2962 23.5723L24.3329 23.1908ZM2.52737 23.5723C2.80135 24.9821 4.03608 26 5.47228 26V24C4.99355 24 4.58197 23.6607 4.49064 23.1908L2.52737 23.5723Z" fill="#0B0B0B"/>
+            </svg>
+                                <span class="icon-links__counter">0</span>
+                
+        </a>
+        </div>
+<!--'end_frame_cache_bx_basketT0kNhm'--></div>
+<script type="text/javascript">
+	bx_basketT0kNhm.siteId       = 's1';
+	bx_basketT0kNhm.cartId       = 'bx_basketT0kNhm';
+	bx_basketT0kNhm.ajaxPath     = '/bitrix/components/bitrix/sale.basket.basket.line/ajax.php';
+	bx_basketT0kNhm.templateName = 'header_basket';
+	bx_basketT0kNhm.arParams     =  {'PATH_TO_BASKET':'/personal/cart/','PATH_TO_PERSONAL':'/personal/','SHOW_PERSONAL_LINK':'N','SHOW_NUM_PRODUCTS':'Y','SHOW_TOTAL_PRICE':'N','SHOW_PRODUCTS':'N','POSITION_FIXED':'N','SHOW_AUTHOR':'Y','PATH_TO_REGISTER':'/auth/registration.php','PATH_TO_PROFILE':'/personal/','COMPONENT_TEMPLATE':'header_basket','PATH_TO_ORDER':'/order/checkout/','SHOW_EMPTY_VALUES':'Y','PATH_TO_AUTHORIZE':'/auth/','SHOW_REGISTRATION':'N','HIDE_ON_BASKET_PAGES':'N','POSITION_HORIZONTAL':'right','POSITION_VERTICAL':'top','CACHE_TYPE':'A','SHOW_DELAY':'Y','SHOW_NOTAVAIL':'Y','SHOW_IMAGE':'Y','SHOW_PRICE':'Y','SHOW_SUMMARY':'Y','MAX_IMAGE_SIZE':'70','AJAX':'N','~PATH_TO_BASKET':'/personal/cart/','~PATH_TO_PERSONAL':'/personal/','~SHOW_PERSONAL_LINK':'N','~SHOW_NUM_PRODUCTS':'Y','~SHOW_TOTAL_PRICE':'N','~SHOW_PRODUCTS':'N','~POSITION_FIXED':'N','~SHOW_AUTHOR':'Y','~PATH_TO_REGISTER':'/auth/registration.php','~PATH_TO_PROFILE':'/personal/','~COMPONENT_TEMPLATE':'header_basket','~PATH_TO_ORDER':'/order/checkout/','~SHOW_EMPTY_VALUES':'Y','~PATH_TO_AUTHORIZE':'/auth/','~SHOW_REGISTRATION':'N','~HIDE_ON_BASKET_PAGES':'N','~POSITION_HORIZONTAL':'right','~POSITION_VERTICAL':'top','~CACHE_TYPE':'A','~SHOW_DELAY':'Y','~SHOW_NOTAVAIL':'Y','~SHOW_IMAGE':'Y','~SHOW_PRICE':'Y','~SHOW_SUMMARY':'Y','~MAX_IMAGE_SIZE':'70','~AJAX':'N','cartId':'bx_basketT0kNhm'}; // TODO \Bitrix\Main\Web\Json::encode
+	bx_basketT0kNhm.closeMessage = 'Скрыть';
+	bx_basketT0kNhm.openMessage  = 'Раскрыть';
+	bx_basketT0kNhm.activate();
+</script>                </div>
+            </div>
+            <div class="page-header__bottom-wrapper">
+                <ul class="popular-list">
+                    <li class="popular-list__item">
+                        <a class="popular-list__link popular-list__link--black" href="#">Акции</a>
+                    </li>
+                                                <li class="popular-list__item">
+                                <a class="popular-list__link"
+                                   href="/catalog/zhurnalno_blanochnaya_produktsiya/zhurnaly/">Журналы</a>
+                            </li>
+                                                        <li class="popular-list__item">
+                                <a class="popular-list__link"
+                                   href="/catalog/uchebnye_posobiya/plakaty_i_tablitsy/">Плакаты и таблицы</a>
+                            </li>
+                                                        <li class="popular-list__item">
+                                <a class="popular-list__link"
+                                   href="/catalog/igry/razvivayushchie_igry/">Развивающие игры</a>
+                            </li>
+                                                        <li class="popular-list__item">
+                                <a class="popular-list__link"
+                                   href="/catalog/zhurnalno_blanochnaya_produktsiya/knigi_ucheta/">Книги учета</a>
+                            </li>
+                                                        <li class="popular-list__item">
+                                <a class="popular-list__link"
+                                   href="/catalog/uchebnye_posobiya/reproduktsii/">Репродукции</a>
+                            </li>
+                                                        <li class="popular-list__item">
+                                <a class="popular-list__link"
+                                   href="/catalog/igrushki/konstruktory/">Конструкторы</a>
+                            </li>
+                                                        <li class="popular-list__item">
+                                <a class="popular-list__link"
+                                   href="/catalog/uchebnye_posobiya/razdatochnyy_material/">Раздаточный материал</a>
+                            </li>
+                                            </ul>
+            </div>
+        </div>
+    </header>
+    <main class="page-main">
+            <div class="page-main__container">
+        <div class="not-found">
+            <div class="not-found__img">
+                <img src="/include/404-error.png" alt=""/>
+            </div>
+            <div class="not-found__text">
+                <h1 class="not-found__title">Страница не найдена</h1>
+                <p>Неправильно набран адрес, или такой страницы на сайте больше не существует.</p>
+                <p>Вернитесь на <a href="/">главную</a> или воспользуйтесь картой сайта.</p>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="page-footer">
+            <div class="page-footer__features-list features">
+            <h2 class="features__title">Для учебных заведений</h2>
+            <ul class="features__list">
+                <li class="features__item features__item--offerts">
+                    <p class="features__description">Выписываем карты оферты (котировочные заявки)</p>
+                    <a class="features__submit alx_feedback_popup" id="form_id_FID1">Оставить заявку</a>
+                </li>
+                <li class="features__item features__item--technical-task">
+                    <p class="features__description">Помогаем в составлении технических заданий</p>
+                    <a class="features__submit alx_feedback_popup" id="form_id_FID1">Оставить заявку</a>
+                </li>
+                <li class="features__item features__item--equipment">
+                    <p class="features__description">Комплексно оснащаем учебные заведения</p>
+                    <a class="features__submit alx_feedback_popup" id="form_id_FID1">Оставить заявку</a>
+                </li>
+            </ul>
+        </div>
+    
+    
+    <script type="text/javascript">
+        if (typeof ALXpopup_FID1== 'undefined' && typeof ALXpopup != 'undefined' && typeof BX != 'undefined')
+            var ALXpopup_FID1= BX.clone(ALXpopup);
+
+        $(document).ready(function () {
+            var param = {
+                'width': "50%",
+                'url': '',
+                'data': {
+                    "AJAX_CALL": "Y",
+                    "OPEN_POPUP": "FID1",
+                    "ELEMENT_ID_ATTR": "",
+                    "TARGET_ELEMENT_ID": ""
+                },
+                'cssURL': ["/local/templates/lenbaza/components/altasib/feedback.form/footer_feedback_form/form_style.css?166090515146836",
+                                                                                                                                            "/local/templates/lenbaza/components/altasib/feedback.form/footer_feedback_form/themes/theme_3578bd6d208f3593a3df445e9c801b35.css?16609001693124"
+                                    ],
+                'objClick': '#form_id_FID1.alx_feedback_popup',
+                'popupAnimation': [
+                    "alx-popup-show-anime0",
+                    "alx-popup-hide-anime0",
+                    "alx-popup-mess-show-anime0"],
+                'openDelay': '0'
+            };
+            if (typeof ALXpopup_FID1!= 'undefined')
+                ALXpopup_FID1.init(param);
+            else
+                ALXpopup.init(param);
+        });
+
+            </script>
+
+        <div class="page-footer__wrapper">
+        <div class="page-footer__nav footer-nav">
+            <div class="footer-nav__column footer-nav__column--logo">
+                <div class="footer-nav__logo-container">
+                    <img class="footer-nav__logo-image" src="/local/templates/lenbaza/img/logo.svg" width="178" height="26" alt="Логотип Ленбазы">
+                </div>
+                <ul class="footer-nav__payment payment-icons">
+                    <li class="payment-icons__item payment-icons__item--mastercard">
+                        <a class="payment-icons__link" href="#">Mastercard</a>
+                    </li>
+                    <li class="payment-icons__item payment-icons__item--visa">
+                        <a class="payment-icons__link" href="#">Visa</a>
+                    </li>
+                    <li class="payment-icons__item payment-icons__item--mir">
+                        <a class="payment-icons__link" href="#">Мир</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav__column">
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item footer-nav__item--title">
+                        <p class="footer-nav__bold-text">Сайт</p>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__link footer-nav__text" href="/catalog/">Каталог</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__link footer-nav__text" href="/news/">Новости</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__link footer-nav__text" href="/contacts/">Контакты</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__link footer-nav__text" href="/about/">О компании</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav__column">
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item footer-nav__item--title">
+                        <p class="footer-nav__bold-text">Как купить</p>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__link footer-nav__text" href="/delivery/">Оплата и доставка</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__link footer-nav__text" href="/delivery/">Возврат</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__link footer-nav__text" href="/delivery/">Справка</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav__column">
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item footer-nav__item--title">
+                        <p class="footer-nav__bold-text">Учебным заведениям</p>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__link footer-nav__text alx_feedback_popup" id="form_id_FID1">Карты оферты</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__link footer-nav__text alx_feedback_popup" id="form_id_FID1">Помощь в оформлении</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__link footer-nav__text alx_feedback_popup" id="form_id_FID1">Техническое задание</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-nav__column">
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item footer-nav__item--title">
+                        <p class="footer-nav__bold-text">Контакты</p>
+                    </li>
+                    <li class="footer-nav__item footer-nav__item--contacts">
+                        <p class="footer-nav__text footer-nav__text--address">198095, Санкт-Петербург, ул. Балтийская д.59 литера А, пом. 1-Н (77)</p>
+                    </li>
+                    <li class="footer-nav__item footer-nav__item--contacts">
+                        <a class="footer-nav__text footer-nav__text--phone" href="tel:+7-812-922-45-05">+7 (812) 922-45-05</a>
+                    </li>
+                    <li class="footer-nav__item footer-nav__item--contacts">
+                        <a class="footer-nav__text" href="mailto:info@lenbaza.ru">info@lenbaza.ru</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-footer__bottom footer-bottom">
+            <a href="/privacy-policy/" class="footer-bottom__item footer-bottom__item--terms">Политика конфиденциальности</a>
+            <!--<a href="#" class="footer-bottom__item footer-bottom__item&#45;&#45;ymarket-logo">Яндекс маркет</a>-->
+            <a href="https://www.ozon.ru/seller/lenbaza-155179" class="footer-bottom__item footer-bottom__item--ozon-logo" title="Мы есть на ОЗОН!">Мы есть на ОЗОН!</a>
+            <a class="footer-bottom__item footer-bottom__item--copyright">Все права защищены, 2023</a>
+        </div>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
