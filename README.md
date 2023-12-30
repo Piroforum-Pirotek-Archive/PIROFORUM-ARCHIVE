@@ -1,7 +1,7 @@
 # Архив форума Пиротек (22.11.2023)
 
 
-<a href="https://piroforum-pirotek-archive.github.io/PIROFORUM-ARCHIVE/" target="_blank">
+<a href="https://piroforum-pirotek-archive.github.io/PIROFORUM-ARCHIVE/">
   <img src="png/logo.png" alt="PiroTek_Logo" width="380px">
 </a>
 
