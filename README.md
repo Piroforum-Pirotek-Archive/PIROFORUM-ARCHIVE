@@ -8,6 +8,7 @@
 ### Официальный форум закылся 31.12.2023 года.
 Cодержание форума требует финансовых расходов и админ форума считает более не целесообразным нести данные расходы. Этот архив сделан на 22.11.2023 и возможно никогда уже не будет обновлен.  
 
-[Ссылка на статическое зеркало (Архив)](https://piroforum-pirotek-archive.github.io/PIROFORUM-ARCHIVE/)
+[Ссылка на статическое зеркало (Архив)](https://piroforum-pirotek-archive.github.io/PIROFORUM-ARCHIVE/)  
 ---
-[Ссылка на форум](https://piroforum.info/)
+[Ссылка на форум](https://piroforum.info/)  
+<a href="https://piroforum.info/" onclick="window.open(this.href); return false;">Ссылка на форум</a>
